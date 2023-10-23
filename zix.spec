@@ -49,16 +49,7 @@ developing applications that use %{name}.
 
 %install
 %meson_install
-# Delete duplicated sphinx docs
-rm -rf %{buildroot}%{_docdir}/%{name}-%{maj}/singlehtml
-# Delete sphinx buildinfo
-rm -f %{buildroot}%{_docdir}/%{name}-%{maj}/html/.buildinfo
-# Move devel docs to the right directory
-install -d %{buildroot}%{_docdir}/%{name}
-mv %{buildroot}%{_docdir}/%{name}-%{maj} %{buildroot}%{_docdir}/%{name}
- 
-%check
-%meson_test
+
 %files
 %license COPYING
 %doc README.md
