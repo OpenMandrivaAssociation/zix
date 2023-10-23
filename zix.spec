@@ -26,15 +26,6 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
  
-%package        doc
-Summary:        Documentation files for %{name}
-Provides:       bundled(js-jquery) = 3.6.0
-Buildarch:      noarch
- 
-%description    doc
-The %{name}-doc package contains documentation files for
-developing applications that use %{name}.
- 
 %prep
 %autosetup -p1
 
@@ -60,6 +51,3 @@ developing applications that use %{name}.
 %{_libdir}/lib%{name}-%{maj}.so
 %{_libdir}/pkgconfig/%{name}-%{maj}.pc
  
-%files doc
-%license COPYING
-%doc %{_docdir}/%{name}/%{name}-%{maj}
