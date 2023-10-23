@@ -3,19 +3,17 @@
  
 Name:           zix
 Version:        0.4.0
-Release:        1%{?dist}
+Release:        1
 Summary:        A lightweight C library of portability wrappers and data structures
  
 License:        ISC
 URL:            https://gitlab.com/drobilla/%{name}
 Source0:        https://download.drobilla.net/%{name}-%{version}.tar.xz
  
-BuildRequires:  gcc
-BuildRequires:  gcc-c++
 BuildRequires:  meson
 BuildRequires:  doxygen
-BuildRequires:  python3-sphinx
-BuildRequires:  python3-sphinxygen
+BuildRequires:  python-sphinx
+#BuildRequires:  python-sphinxygen
  
 %description
 %{name} is a lightweight C library of portability wrappers and data structures.
@@ -38,11 +36,17 @@ The %{name}-doc package contains documentation files for
 developing applications that use %{name}.
  
 %prep
-%autosetup
+%autosetup -p1
+
 %build
 # Do not build benchmarks
-%meson -Dbenchmarks=disabled
+%meson 	\
+	-Dbenchmarks=disabled \
+ 	-Ddocs=disabled \
+  	-Dhtml=disabled \
+   	-Dsinglehtml=disabled
 %meson_build
+
 %install
 %meson_install
 # Delete duplicated sphinx docs
