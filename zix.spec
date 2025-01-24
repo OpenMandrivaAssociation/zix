@@ -1,7 +1,7 @@
 %global         maj 0
  
 Name:           zix
-Version:        0.4.2
+Version:        0.6.2
 Release:        1
 Summary:        A lightweight C library of portability wrappers and data structures
  
